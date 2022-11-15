@@ -1,0 +1,47 @@
+{
+  "name": "test-mono-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpm run dev",
+    "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
+    "dev:backend": " pnpm --filter backend run dev",
+    "dev:frontend": " pnpm --filter frontend run dev",
+    "test": "pnpm run test",
+    "test:frontend": "pnpm --filter frontend run test",
+    "test:backend": "pnpm --filter backend run test",
+    "build": "pnpm run build",
+    "build:frontend": "pnpm --filter frontend run build",
+    "build:backend": "pnpm --filter backend run build",
+    "lint": "pnpm run lint",
+    "lint:frontend": "pnpm --filter frontend run lint",
+    "lint:backend": "pnpm --filter backend run lint",
+    "lint:fix": "pnpm run lint:fix",
+    "lint:fix:frontend": "pnpm --filter frontend run lint:fix",
+    "lint:fix:backend": "pnpm --filter backend run lint:fix",
+    "gitignore": "pnpm ngitignore create"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "src/packages/*"
+  ],
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
+  "dependencies": {
+    "backend": "workspace:*",
+    "concurrently": "^7.5.0",
+    "frontend": "workspace:*",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "ngitignore": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
